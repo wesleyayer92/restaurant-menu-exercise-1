@@ -85,9 +85,13 @@ It should accept a single card element and append it to the `.js-main-content` e
 
 When the user clicks on a category name, use that name to look up the value in the `menu` object.
 
-Pass that value to the `itemToCard()` function.
+That value should be an array of food item objects.
 
-Then pass the card to your `appendCardToMainContent()` function
+Using `.map()`, apply the `itemToCard()` function to every food item object.
+
+This should return an array of "cards" (`<div>` elements with the `name` and `price` value.)
+
+Using `.map()`, apply the `appendCardToMainContent()` function to every element in the array of "cards".
 
 ## Clear out the `.js-main-content` area
 
