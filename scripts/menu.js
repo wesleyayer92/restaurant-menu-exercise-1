@@ -136,8 +136,7 @@ const ul = document.querySelector('.js-menu');
 const mainContent = document.querySelector('.js-main-content');
 
 function getCategories(menuObj) {
-    let arr = Object.keys(menuObj);
-    return arr;
+    return Object.keys(menuObj);
 }
 
 function nameToListItem(arr) {
@@ -149,11 +148,9 @@ function nameToListItem(arr) {
     });
 }
 
-nameToListItem(getCategories(menu));
 
 function getItems(categoryName) {
-    let itemsArr = menu[categoryName].map(itemObj => itemObj.name);
-    return itemsArr;
+    return menu[categoryName].map(itemObj => itemObj.name);
 }
 
 function clearContainer() {
@@ -175,3 +172,5 @@ function createCard(itemObj) {
     card.appendChild(price);
     mainContent.appendChild(card);
 }
+
+nameToListItem(getCategories(menu));
