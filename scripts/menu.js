@@ -131,3 +131,47 @@ const menu = {
         }
     ]
 };
+
+const ul = document.querySelector('.js-menu');
+const mainContent = document.querySelector('.js-main-content');
+
+function getCategories(menuObj) {
+    let arr = Object.keys(menuObj);
+    return arr;
+}
+
+function nameToListItem(arr) {
+    arr.forEach(categoryName => {
+        const listItem = document.createElement('li');
+        listItem.textContent = categoryName;
+        listItem.addEventListener("click", (e) => clearAndAppend(e.target.textContent));
+        ul.appendChild(listItem);
+    });
+}
+
+nameToListItem(getCategories(menu));
+
+function getItems(categoryName) {
+    let itemsArr = menu[categoryName].map(itemObj => itemObj.name);
+    return itemsArr;
+}
+
+function clearContainer() {
+    mainContent.textContent = '';
+}
+
+function clearAndAppend(category) {
+    clearContainer();
+    menu[category].forEach(createCard);
+}
+
+function createCard(itemObj) {
+    let card = document.createElement('div');
+    let name = document.createElement('h2');
+    name.textContent = itemObj.name;
+    let price = document.createElement('h3');
+    price.textContent = itemObj.price;
+    card.appendChild(name);
+    card.appendChild(price);
+    mainContent.appendChild(card);
+}
